@@ -11,6 +11,7 @@ const Cart = (props) => {
     shipping = shipping + product.shipping ;
   }
   const tax = (total * 0.1).toFixed(2);
+  const grandTotal = 0;
     console.log(tax)
        
     return (
