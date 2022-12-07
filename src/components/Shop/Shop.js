@@ -22,6 +22,7 @@ const Shop = () => {
         // console.log(product)
         setCart(newCart);
     } 
+    // console.log(cart)
     return (
         <div className='shop-container'>
             <div className="products-container">

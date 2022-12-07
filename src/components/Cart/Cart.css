@@ -1,0 +1,11 @@
+.cart{
+  position: sticky;
+  top : 0;
+  padding: 30px 20px;
+}
+.cart h4{
+    font-size: 21px;
+}
+.cart h5{
+    font-size: 17px;
+}
