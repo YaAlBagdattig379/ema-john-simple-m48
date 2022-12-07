@@ -1,6 +1,7 @@
 import React from 'react';
 import { addToDb } from '../../utilities/fakedb';//to mangage localStorage data v-4
 import { useEffect } from 'react';
+import { getStoredCart } from '../../utilities/fakedb';
 import { useState } from 'react';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
@@ -14,6 +15,13 @@ const Shop = () => {
         fetch('products.json')
         .then(res => res.json())
         .then(data => setProducts(data))
+    },[])
+    useEffect( () =>{//first step to display localStorage to 'UI'
+        const storedCart = getStoredCart();
+        for(const id in storedCart){
+            const addedProduct = products.find(product => product.id === id)
+            console.log(addedProduct)
+        } 
     },[])
 
     // button from event handler products 
