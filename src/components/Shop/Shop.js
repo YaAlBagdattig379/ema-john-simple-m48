@@ -1,5 +1,5 @@
 import React from 'react';
-import { addToDb } from '../../utilities/fakedb';
+import { addToDb } from '../../utilities/fakedb';//to mangage localStorage data v-4
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Cart from '../Cart/Cart';
@@ -22,7 +22,7 @@ const Shop = () => {
         const newCart = [...cart,product]
         // console.log(product)
         setCart(newCart);
-        addToDb(product.id); // to mangage localStorage data 
+        addToDb(product.id); // to mangage localStorage data v-4 
     } 
     // console.log(cart)
     return (
