@@ -1,10 +1,26 @@
 import React from 'react'; // working from-49-v-1
+import './Cart.css'
 
 const Cart = (props) => {
+  const {cart} = props;
+  console.log(cart)
+  let total = 0;
+  let shipping = 0;
+  for(const product of cart){
+    total = total + product.price;
+    shipping = shipping + product.shipping ;
+  }
+  const tax = (total * 0.1).toFixed(2);
+    console.log(tax)
+       
     return (
-        <div>
-          <h4>order summery</h4>
-          <p>Selected Items: {props.cart.length} </p>
+        <div className='cart'>
+          <h4>Order Summery</h4>
+          <p>Selected Items: {cart.length} </p>
+          <p>Total Price: ${total} </p>
+          <p>Total shipping: ${shipping} </p>
+          <p>Tax: ${+tax} </p>{/* to fixed are to use in here */}
+          <h5>Grand Total: ${} </h5>
         </div>
     );
 };
