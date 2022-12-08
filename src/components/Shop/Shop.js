@@ -12,17 +12,26 @@ const Shop = () => {
      // stats for container cartContainer 
      const [cart, setCart] = useState([]);//second stats for container cart
     useEffect( ()=>{
+        console.log('first useEffect')
         fetch('products.json')
         .then(res => res.json())
         .then(data => setProducts(data))
     },[])
-    useEffect( () =>{//first step to display localStorage to 'UI'
+    useEffect( () =>{//first step to display localStorage to 'UI' from v-6 
+        console.log('second useEffect',products)
         const storedCart = getStoredCart();
+        const saveCart = [];
         for(const id in storedCart){
             const addedProduct = products.find(product => product.id === id)
-            console.log(addedProduct)
+            if(addedProduct){
+                const quantity = storedCart[id];
+                addedProduct.quantity = quantity;
+                saveCart.push(addedProduct);
+                console.log(addedProduct)
+            }
+            setCart(saveCart);
         } 
-    },[])
+    },[products])//dependency injecsection 
 
     // button from event handler products 
     const handleAddToCart = (product) =>{
